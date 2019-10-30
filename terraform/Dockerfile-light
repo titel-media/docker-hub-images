@@ -1,8 +1,8 @@
 FROM alpine:latest
 LABEL maintainer="Titel Media GmbH dev team <dev@highsnobiety.com>"
 
-ENV TERRAFORM_VERSION=0.12.11
-ENV TERRAFORM_SHA256SUM=d61f8758a25bc079bb0833b81f998fbc4cf03bb0f41b995e08204cf5978f700e
+ENV TERRAFORM_VERSION=0.12.12
+ENV TERRAFORM_SHA256SUM=67bc7a49c0946ad48b14cc6e95482fdd3e7e9f7dc6811f4ce6ff531fc565bd3a
 
 LABEL "com.hashicorp.terraform.version"="${TERRAFORM_VERSION}"
 
