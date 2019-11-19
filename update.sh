@@ -21,7 +21,7 @@ if [ "$LATEST" != "$CURRENT" ]; then
 
   cd terraform && \
     ./build.sh && \
-    echo "now ./release.sh" && \
+    ./release.sh && \
     cd ..
 else
   echo "Terraform version is up to date"
