@@ -1,12 +1,13 @@
 FROM alpine:latest
 LABEL maintainer="Titel Media GmbH dev team <dev@highsnobiety.com>"
 
-ENV TERRAFORM_VERSION=0.12.19
-ENV TERRAFORM_SHA256SUM=a549486112f5350075fb540cfd873deb970a9baf8a028a86ee7b4472fc91e167
+ENV TERRAFORM_VERSION=0.12.20
+ENV TERRAFORM_SHA256SUM=46bd906f8cb9bbb871905ecb23ae7344af8017d214d735fbb6d6c8e0feb20ff3
 
 LABEL "com.hashicorp.terraform.version"="${TERRAFORM_VERSION}"
 
-RUN apk add --no-cache git curl bash openssh && \
+RUN apk add --no-cache git curl bash openssh su-exec && \
+    apk add -U wireguard-tools && \
     curl https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip > terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
     echo "${TERRAFORM_SHA256SUM}  terraform_${TERRAFORM_VERSION}_linux_amd64.zip" > terraform_${TERRAFORM_VERSION}_SHA256SUMS && \
     sha256sum -cs terraform_${TERRAFORM_VERSION}_SHA256SUMS && \
